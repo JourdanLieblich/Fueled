@@ -23,7 +23,7 @@ class FillupViewController: UIViewController {
     @IBOutlet weak var resultsTableView: UITableView!
     
     
-    let gasObj = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
+    let gasObj = FillupRealm()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +38,21 @@ class FillupViewController: UIViewController {
     func refreshUI(){
         
     }
+    
     @IBAction func calculateTapped(_ sender: AnyObject) {
         
         gasObj.gallons = Double((gallonsText.text! as NSString).doubleValue)
         
         gasObj.miles = Double((milesText.text! as NSString).doubleValue)
         
-        gasObj.ppg = Double((costText.text! as NSString).doubleValue)
+        gasObj.cost = Double((costText.text! as NSString).doubleValue)
         
         print("calc pressed")
         
-        print(gasObj.ppg)
+        print(gasObj.cost)
+        print(gasObj.date)
+        print(gasObj.gallons)
+        print(gasObj.miles)
         
         milesText.resignFirstResponder()
         gallonsText.resignFirstResponder()
