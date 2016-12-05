@@ -14,6 +14,7 @@
 		775F78AC1DF4EB82003071DA /* UserObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F78AA1DF4EB82003071DA /* UserObj.swift */; };
 		7786B4901DF50A7E00E8E325 /* Vechicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786B48F1DF50A7E00E8E325 /* Vechicle.swift */; };
 		7786B4921DF50DCF00E8E325 /* FillupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786B4911DF50DCF00E8E325 /* FillupRealm.swift */; };
+		7786B4951DF5131B00E8E325 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786B4941DF5131B00E8E325 /* UserRealm.swift */; };
 		779029411DF4E6EC00D8023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029401DF4E6EC00D8023D /* AppDelegate.swift */; };
 		779029431DF4E6EC00D8023D /* FillupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029421DF4E6EC00D8023D /* FillupViewController.swift */; };
 		779029451DF4E6EC00D8023D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029441DF4E6EC00D8023D /* HistoryViewController.swift */; };
@@ -30,6 +31,7 @@
 		775F78AA1DF4EB82003071DA /* UserObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObj.swift; sourceTree = "<group>"; };
 		7786B48F1DF50A7E00E8E325 /* Vechicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vechicle.swift; sourceTree = "<group>"; };
 		7786B4911DF50DCF00E8E325 /* FillupRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillupRealm.swift; sourceTree = "<group>"; };
+		7786B4941DF5131B00E8E325 /* UserRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
 		7790293D1DF4E6EC00D8023D /* Fueled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fueled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779029401DF4E6EC00D8023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779029421DF4E6EC00D8023D /* FillupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillupViewController.swift; sourceTree = "<group>"; };
@@ -62,22 +64,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		775F78AD1DF4EB86003071DA /* SupportingObjs */ = {
+		775F78AD1DF4EB86003071DA /* SupportingObjects */ = {
 			isa = PBXGroup;
 			children = (
 				775F78A91DF4EB82003071DA /* FillupObj.swift */,
 				775F78AA1DF4EB82003071DA /* UserObj.swift */,
 				7786B48F1DF50A7E00E8E325 /* Vechicle.swift */,
 			);
-			name = SupportingObjs;
+			name = SupportingObjects;
 			sourceTree = "<group>";
 		};
 		7786B4931DF50DEB00E8E325 /* RealmObjects */ = {
 			isa = PBXGroup;
 			children = (
 				7786B4911DF50DCF00E8E325 /* FillupRealm.swift */,
+				7786B4941DF5131B00E8E325 /* UserRealm.swift */,
 			);
 			name = RealmObjects;
+			sourceTree = "<group>";
+		};
+		7786B4961DF514B600E8E325 /* ViewControlllers */ = {
+			isa = PBXGroup;
+			children = (
+				779029421DF4E6EC00D8023D /* FillupViewController.swift */,
+				779029441DF4E6EC00D8023D /* HistoryViewController.swift */,
+				775F78A51DF4E8FF003071DA /* LoginViewController.swift */,
+				775F78A71DF4EB01003071DA /* StationsViewController.swift */,
+			);
+			name = ViewControlllers;
 			sourceTree = "<group>";
 		};
 		779029341DF4E6EC00D8023D = {
@@ -102,12 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				779029401DF4E6EC00D8023D /* AppDelegate.swift */,
-				779029421DF4E6EC00D8023D /* FillupViewController.swift */,
-				779029441DF4E6EC00D8023D /* HistoryViewController.swift */,
-				775F78A51DF4E8FF003071DA /* LoginViewController.swift */,
-				775F78A71DF4EB01003071DA /* StationsViewController.swift */,
+				7786B4961DF514B600E8E325 /* ViewControlllers */,
 				7786B4931DF50DEB00E8E325 /* RealmObjects */,
-				775F78AD1DF4EB86003071DA /* SupportingObjs */,
+				775F78AD1DF4EB86003071DA /* SupportingObjects */,
 				779029461DF4E6EC00D8023D /* Main.storyboard */,
 				779029491DF4E6EC00D8023D /* Assets.xcassets */,
 				7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */,
@@ -249,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7786B4951DF5131B00E8E325 /* UserRealm.swift in Sources */,
 				775F78A61DF4E8FF003071DA /* LoginViewController.swift in Sources */,
 				7786B4921DF50DCF00E8E325 /* FillupRealm.swift in Sources */,
 				775F78AC1DF4EB82003071DA /* UserObj.swift in Sources */,

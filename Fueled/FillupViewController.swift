@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FillupViewController: UIViewController {
 
@@ -70,6 +71,23 @@ class FillupViewController: UIViewController {
         costText.resignFirstResponder()
     }
     
+    
+    
+    @IBAction func addFillupToDatabase(_ sender: AnyObject) {
+        
+        //Stop accidental default and (potentially) irreversable additions to the Database
+        if(gasObj.cost != 0.0 && gasObj.gallons != 0.0 && gasObj.miles != 0.0){
+        
+        let realm = try! Realm()
+        
+            try! realm.write{
+                realm.add(gasObj)
+            }
+            
+            
+            
+        }
+    }
 
 }
 
