@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		40FECF330FDF1939CF82BEEB /* Pods_Fueled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD14C2F2BA19E1F7BC9671B /* Pods_Fueled.framework */; };
+		775F78A61DF4E8FF003071DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F78A51DF4E8FF003071DA /* LoginViewController.swift */; };
 		779029411DF4E6EC00D8023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029401DF4E6EC00D8023D /* AppDelegate.swift */; };
-		779029431DF4E6EC00D8023D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029421DF4E6EC00D8023D /* FirstViewController.swift */; };
-		779029451DF4E6EC00D8023D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029441DF4E6EC00D8023D /* SecondViewController.swift */; };
+		779029431DF4E6EC00D8023D /* FillupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029421DF4E6EC00D8023D /* FillupViewController.swift */; };
+		779029451DF4E6EC00D8023D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779029441DF4E6EC00D8023D /* HistoryViewController.swift */; };
 		779029481DF4E6EC00D8023D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779029461DF4E6EC00D8023D /* Main.storyboard */; };
 		7790294A1DF4E6EC00D8023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779029491DF4E6EC00D8023D /* Assets.xcassets */; };
 		7790294D1DF4E6EC00D8023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		1DD14C2F2BA19E1F7BC9671B /* Pods_Fueled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fueled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		775F78A51DF4E8FF003071DA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7790293D1DF4E6EC00D8023D /* Fueled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fueled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779029401DF4E6EC00D8023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		779029421DF4E6EC00D8023D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		779029441DF4E6EC00D8023D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		779029421DF4E6EC00D8023D /* FillupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillupViewController.swift; sourceTree = "<group>"; };
+		779029441DF4E6EC00D8023D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		779029471DF4E6EC00D8023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		779029491DF4E6EC00D8023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7790294C1DF4E6EC00D8023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,8 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				779029401DF4E6EC00D8023D /* AppDelegate.swift */,
-				779029421DF4E6EC00D8023D /* FirstViewController.swift */,
-				779029441DF4E6EC00D8023D /* SecondViewController.swift */,
+				779029421DF4E6EC00D8023D /* FillupViewController.swift */,
+				779029441DF4E6EC00D8023D /* HistoryViewController.swift */,
+				775F78A51DF4E8FF003071DA /* LoginViewController.swift */,
 				779029461DF4E6EC00D8023D /* Main.storyboard */,
 				779029491DF4E6EC00D8023D /* Assets.xcassets */,
 				7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */,
@@ -126,6 +129,7 @@
 				TargetAttributes = {
 					7790293C1DF4E6EC00D8023D = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = CPD2S556M2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,9 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				779029451DF4E6EC00D8023D /* SecondViewController.swift in Sources */,
+				775F78A61DF4E8FF003071DA /* LoginViewController.swift in Sources */,
+				779029451DF4E6EC00D8023D /* HistoryViewController.swift in Sources */,
 				779029411DF4E6EC00D8023D /* AppDelegate.swift in Sources */,
-				779029431DF4E6EC00D8023D /* FirstViewController.swift in Sources */,
+				779029431DF4E6EC00D8023D /* FillupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +343,7 @@
 			baseConfigurationReference = F16D327E24B708FF84BF53FA /* Pods-Fueled.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CPD2S556M2;
 				INFOPLIST_FILE = Fueled/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VJA.Fueled;
@@ -351,6 +357,7 @@
 			baseConfigurationReference = EF6B4945354F7AAD12D20C8B /* Pods-Fueled.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CPD2S556M2;
 				INFOPLIST_FILE = Fueled/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VJA.Fueled;
