@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import RealmSwift
+
+
+class UserObj{//: Object{
+    
+    dynamic var name:String
+    var vehicle:Vehicle
+    dynamic var user_ID:Int
+    
+    required init() {
+        name = ""
+        user_ID = 0
+        vehicle = Vehicle()
+    }
+    
+    
+
+}

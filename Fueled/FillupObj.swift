@@ -7,22 +7,25 @@
 //
 
 import Foundation
+import RealmSwift
 
 class FillupObj{
     
-    var ppg:Double
-    var miles:Double
-    var gallons:Double
+    var ppg:Double = 0.0
+    var miles:Double = 0.0
+    var gallons:Double = 0.0
     var mpg:Double{
         get{
             return miles/gallons
         }
     }
     
-    init(miles : Double, gallons : Double, ppg: Double){
+    required init(miles : Double, gallons : Double, ppg: Double){
         self.miles = miles
         self.gallons = gallons
         self.ppg = ppg
     }
+    
+
     
 }
