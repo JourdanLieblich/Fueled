@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  StationsViewController.swift
 //  Fueled
 //
 //  Created by Jourdan Lieblich on 12/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class StationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,3 +22,4 @@ class LoginViewController: UIViewController {
     
     
 }
+

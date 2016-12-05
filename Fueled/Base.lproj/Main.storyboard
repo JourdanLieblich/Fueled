@@ -71,6 +71,9 @@
                                 <frame key="frameInset" minX="114" minY="303" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate Data Points"/>
+                                <connections>
+                                    <action selector="calculateTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cKe-GJ-Rab"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcH-HG-ebd">
                                 <frame key="frameInset" minX="122" minY="580" width="131" height="30"/>
@@ -84,10 +87,27 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="O74-5o-SQr" appends="YES" id="7c3-fy-3Bg"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fillup" image="Gas Pump" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="calcButton" destination="OxN-7S-51E" id="0ER-vQ-lqF"/>
+                        <outlet property="costText" destination="mMs-3e-ABJ" id="jwN-f1-ViW"/>
+                        <outlet property="gallonsText" destination="upS-KW-Vfd" id="vgh-Mi-9Zq"/>
+                        <outlet property="historyButton" destination="fcH-HG-ebd" id="bgW-b3-owJ"/>
+                        <outlet property="milesText" destination="Q1X-f4-gxo" id="qSG-WN-V1b"/>
+                        <outlet property="resultsTableView" destination="9Y7-6h-j9g" id="I7J-3z-Mft"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="O74-5o-SQr">
+                    <connections>
+                        <action selector="viewTapped:" destination="9pv-A4-QxB" id="XxW-T0-H22"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1020" y="-528"/>
         </scene>
@@ -132,7 +152,7 @@
         <!--Station-->
         <scene sceneID="Bg6-A9-FEQ">
             <objects>
-                <viewController title="Station" id="bOQ-1w-tw1" sceneMemberID="viewController">
+                <viewController title="Station" id="bOQ-1w-tw1" customClass="StationsViewController" customModule="Fueled" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TEx-t2-Sa6"/>
                         <viewControllerLayoutGuide type="bottom" id="fiS-mu-ooe"/>
@@ -151,7 +171,7 @@
         <!--Login-->
         <scene sceneID="mIe-Zs-Whn">
             <objects>
-                <viewController title="Login" id="e60-Cn-Jpl" sceneMemberID="viewController">
+                <viewController title="Login" id="e60-Cn-Jpl" customClass="LoginViewController" customModule="Fueled" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Z1-dH-Uzy"/>
                         <viewControllerLayoutGuide type="bottom" id="kfI-zR-Ssu"/>
