@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FillupViewController: UIViewController {
+class FillupViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var milesText: UITextField!
     
@@ -25,6 +25,7 @@ class FillupViewController: UIViewController {
     
     
     let gasObj = FillupRealm()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
+    //let fastGas = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,12 @@ class FillupViewController: UIViewController {
         
         gasObj.cost = Double((costText.text! as NSString).doubleValue)
         
+//        fastGas.gallons = Double((gallonsText.text! as NSString).doubleValue)
+//        
+//        fastGas.miles = Double((milesText.text! as NSString).doubleValue)
+//        
+//        fastGas.ppg = Double((costText.text! as NSString).doubleValue)
+        
         print("calc pressed")
         
         print(gasObj.cost)
@@ -59,7 +66,7 @@ class FillupViewController: UIViewController {
         gallonsText.resignFirstResponder()
         costText.resignFirstResponder()
         
-        //resultsTableView.reloadData()
+        resultsTableView.reloadData()
         
     }
     
@@ -71,6 +78,36 @@ class FillupViewController: UIViewController {
         costText.resignFirstResponder()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Table view")
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
+        
+        let calcedMPG = gasObj.mpg
+        let cPM = gasObj.cPM
+        
+        print("Calced MPG")
+        print(calcedMPG)
+        
+        print("INDEX PATH")
+        print(indexPath.row)
+        
+        if(indexPath.row == 0){
+            cell.textLabel?.text = "MPG:"
+            cell.detailTextLabel?.text = String(format:" %0.2f", calcedMPG)
+        }
+        if(indexPath.row == 1){
+            cell.textLabel?.text = "Cost Per Mile:"
+            cell.detailTextLabel?.text = String(format:"$%0.2f", cPM)
+        }
+        
+        
+        return cell
+    }
     
     
     @IBAction func addFillupToDatabase(_ sender: AnyObject) {

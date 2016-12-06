@@ -16,7 +16,23 @@ class FillupRealm: Object{
     dynamic var cost:Double = 0.0
     dynamic var mpg:Double{
         get{
-            return miles/gallons
+            if(gallons == 0.0){
+                return 0.0
+            }
+            else{
+                return miles/gallons
+            }
+        }
+    }
+    
+    dynamic var cPM:Double{
+        get{
+            if(miles == 0.0){
+                return 0.0
+            }
+            else{
+                return (cost*gallons)/miles
+            }
         }
     }
     
