@@ -27,6 +27,7 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     let gasObj = FillupRealm()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     //let fastGas = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,18 +50,13 @@ class FillupViewController: UIViewController, UITableViewDataSource {
         
         gasObj.cost = Double((costText.text! as NSString).doubleValue)
         
-//        fastGas.gallons = Double((gallonsText.text! as NSString).doubleValue)
-//        
-//        fastGas.miles = Double((milesText.text! as NSString).doubleValue)
-//        
-//        fastGas.ppg = Double((costText.text! as NSString).doubleValue)
         
-        print("calc pressed")
-        
-        print(gasObj.cost)
-        print(gasObj.date)
-        print(gasObj.gallons)
-        print(gasObj.miles)
+//        print("calc pressed")
+//        
+//        print(gasObj.cost)
+//        print(gasObj.date)
+//        print(gasObj.gallons)
+//        print(gasObj.miles)
         
         milesText.resignFirstResponder()
         gallonsText.resignFirstResponder()
@@ -114,6 +110,8 @@ class FillupViewController: UIViewController, UITableViewDataSource {
         
         //Stop accidental default and (potentially) irreversable additions to the Database
         if(gasObj.cost != 0.0 && gasObj.gallons != 0.0 && gasObj.miles != 0.0){
+            
+            //gasObj.user_ID =
         
         let realm = try! Realm()
         
