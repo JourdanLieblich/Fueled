@@ -111,17 +111,15 @@ class FillupViewController: UIViewController, UITableViewDataSource {
         //Stop accidental default and (potentially) irreversable additions to the Database
         if(gasObj.cost != 0.0 && gasObj.gallons != 0.0 && gasObj.miles != 0.0){
             
-            //gasObj.user_ID =
             
+        //Set the gasObj ID to be the users id so querying the Database for this users info becomes posible
+        gasObj.user_ID = LoginViewController.GlobalUser.user.user_ID
             
-        
         let realm = try! Realm()
         
             try! realm.write{
                 realm.add(gasObj)
             }
-            
-            
             
         }
     }
