@@ -94,6 +94,17 @@
 			name = ViewControlllers;
 			sourceTree = "<group>";
 		};
+		7786B4971DF7290F00E8E325 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				779029461DF4E6EC00D8023D /* Main.storyboard */,
+				779029491DF4E6EC00D8023D /* Assets.xcassets */,
+				7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */,
+				7790294E1DF4E6EC00D8023D /* Info.plist */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		779029341DF4E6EC00D8023D = {
 			isa = PBXGroup;
 			children = (
@@ -115,14 +126,11 @@
 		7790293F1DF4E6EC00D8023D /* Fueled */ = {
 			isa = PBXGroup;
 			children = (
-				779029401DF4E6EC00D8023D /* AppDelegate.swift */,
+				7786B4971DF7290F00E8E325 /* Assets */,
 				7786B4961DF514B600E8E325 /* ViewControlllers */,
 				7786B4931DF50DEB00E8E325 /* RealmObjects */,
 				775F78AD1DF4EB86003071DA /* SupportingObjects */,
-				779029461DF4E6EC00D8023D /* Main.storyboard */,
-				779029491DF4E6EC00D8023D /* Assets.xcassets */,
-				7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */,
-				7790294E1DF4E6EC00D8023D /* Info.plist */,
+				779029401DF4E6EC00D8023D /* AppDelegate.swift */,
 			);
 			path = Fueled;
 			sourceTree = "<group>";

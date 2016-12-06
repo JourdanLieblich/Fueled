@@ -112,6 +112,8 @@ class FillupViewController: UIViewController, UITableViewDataSource {
         if(gasObj.cost != 0.0 && gasObj.gallons != 0.0 && gasObj.miles != 0.0){
             
             //gasObj.user_ID =
+            
+            
         
         let realm = try! Realm()
         

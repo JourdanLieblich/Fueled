@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HistoryViewController: UIViewController {
 
+    var history: Results<FillupRealm>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

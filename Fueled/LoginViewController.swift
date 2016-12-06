@@ -30,8 +30,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: AnyObject) {
         
+        let password = passwordField.text!
         
+        let name = usernameField.text!
         
+        GlobalUser.user.login(u_ID: password, n: name, v: "Tractor", c: "Compton");
+        
+    }
+    
+    struct GlobalUser{
+        static var user = UserRealm()
     }
     
     
