@@ -24,9 +24,12 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var resultsTableView: UITableView!
     
     
-    let gasObj = FillupRealm()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
-    //let fastGas = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
+    let gasObj = FillupRealmWOKey()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
+    let localGas = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     
+    var realm:Realm!
+    
+    var history: Results<FillupRealm>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +47,17 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func calculateTapped(_ sender: AnyObject) {
         
-        gasObj.gallons = Double((gallonsText.text! as NSString).doubleValue)
+//        gasObj.gallons = Double((gallonsText.text! as NSString).doubleValue)
+//        
+//        gasObj.miles = Double((milesText.text! as NSString).doubleValue)
+//        
+//        gasObj.cost = Double((costText.text! as NSString).doubleValue)
+
+        localGas.gallons = Double((gallonsText.text! as NSString).doubleValue)
         
-        gasObj.miles = Double((milesText.text! as NSString).doubleValue)
+                localGas.miles = Double((milesText.text! as NSString).doubleValue)
         
-        gasObj.cost = Double((costText.text! as NSString).doubleValue)
-        
+                localGas.ppg = Double((costText.text! as NSString).doubleValue)
         
 //        print("calc pressed")
 //        
@@ -76,15 +84,16 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Table view")
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
         
-        let calcedMPG = gasObj.mpg
-        let cPM = gasObj.cPM
+        let calcedMPG = localGas.mpg
+        let cPM = localGas.cPM
+        let totalCost = localGas.miles*cPM
         
         print("Calced MPG")
         print(calcedMPG)
@@ -92,14 +101,19 @@ class FillupViewController: UIViewController, UITableViewDataSource {
         print("INDEX PATH")
         print(indexPath.row)
         
-        if(indexPath.row == 0){
+        if(indexPath.row == 1){
             cell.textLabel?.text = "MPG:"
             cell.detailTextLabel?.text = String(format:" %0.2f", calcedMPG)
         }
-        if(indexPath.row == 1){
+        if(indexPath.row == 2){
             cell.textLabel?.text = "Cost Per Mile:"
             cell.detailTextLabel?.text = String(format:"$%0.2f", cPM)
         }
+        if(indexPath.row == 3){
+            cell.textLabel?.text = "Total Cost:"
+            cell.detailTextLabel?.text = String(format:"$%0.2f", totalCost)
+        }
+      
         
         
         return cell
@@ -109,18 +123,31 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     @IBAction func addFillupToDatabase(_ sender: AnyObject) {
         
         //Stop accidental default and (potentially) irreversable additions to the Database
-        if(gasObj.cost != 0.0 && gasObj.gallons != 0.0 && gasObj.miles != 0.0){
+        if(localGas.ppg != 0.0 && localGas.gallons != 0.0 && localGas.miles != 0.0){
             
             
         //Set the gasObj ID to be the users id so querying the Database for this users info becomes posible
         gasObj.user_ID = LoginViewController.GlobalUser.user.user_ID
-            
-        let realm = try! Realm()
+        gasObj.cost = localGas.ppg
         
+            gasObj.gallons = localGas.gallons
+           
+        
+            print(gasObj.user_ID)
+            
+            do {
+                realm = try Realm()
+            } catch let error { print(error) }
+        
+            
+            
+            //gasObj. = String(history.count)
+            
+            do{
             try! realm.write{
                 realm.add(gasObj)
             }
-            
+            } catch let error {print(error)}
         }
     }
 

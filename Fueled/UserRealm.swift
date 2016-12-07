@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-class UserRealm{
+class UserRealm : Object{
     
-    dynamic var user_ID = NSUUID().uuidString
+    dynamic var user_ID:String = ""
     
     dynamic var name: String = "John Doe"
     dynamic var vehicle: String = "Tractor"
@@ -24,6 +24,9 @@ class UserRealm{
         modCity(newCity: c)
     }
     
+//    override class func primaryKey() -> String?{
+//        return "user_ID"
+//    }
     
     func modID(ID: String){
         user_ID = ID

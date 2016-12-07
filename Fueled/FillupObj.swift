@@ -16,10 +16,27 @@ class FillupObj{
     var gallons:Double = 0.0
     var mpg:Double{
         get{
-            return miles/gallons
+            if(gallons == 0.0){
+                return 0.0
+            }
+            else{
+                return miles/gallons
+            }
+            
         }
     }
     
+    var cPM:Double{
+        get{
+            if(miles == 0.0){
+                return 0.0
+            }
+            else{
+                return (ppg*gallons)/miles
+            }
+        }
+    }
+
     required init(miles : Double, gallons : Double, ppg: Double){
         self.miles = miles
         self.gallons = gallons

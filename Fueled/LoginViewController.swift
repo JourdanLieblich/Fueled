@@ -17,9 +17,19 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    let localUser = UserRealm()
+    
+    var realm:Realm!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        do {
+            realm = try Realm()
+        } catch let error { print(error) }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +46,23 @@ class LoginViewController: UIViewController {
         
         GlobalUser.user.login(u_ID: password, n: name, v: "Tractor", c: "Compton");
         
+        localUser.login(u_ID: password, n: name, v: "Tractor", c: "Compton")
+        
+//        let realm = try! Realm()
+//        
+        
+//        if(realm.object(ofType: UserRealm.self, forPrimaryKey: password) == nil){
+//            
+//        
+//        do{
+//            
+//            try! realm.write{
+//            realm.add(localUser)
+//            }
+//        } catch let error {print(error)}
+//        
+//        }
+//
     }
     
     struct GlobalUser{

@@ -1,15 +1,15 @@
 //
-//  FillupRealm.swift
-//  
+//  FillupRealmWOKey.swift
+//  Fueled
 //
-//  Created by Jourdan Lieblich on 12/4/16.
-//
+//  Created by Jourdan Lieblich on 12/7/16.
+//  Copyright © 2016 Jourdan Lieblich. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class FillupRealm: Object{
+class FillupRealmWOKey: Object{
     
     dynamic var miles:Double = 0.0
     dynamic var gallons:Double = 0.0
@@ -38,11 +38,12 @@ class FillupRealm: Object{
     
     dynamic var date = NSDate()
     dynamic var user_ID:String = ""
+//    dynamic var extraInt:Int = 0
+//    dynamic var extraString = ""
     
-    
-    override class func primaryKey() -> String?{
-        return "user_ID"
-    }
+    //    override class func primaryKey() -> String?{
+    //        return "user_ID"
+    //    }
     
     override class func indexedProperties() -> [String]{
         return ["date"]

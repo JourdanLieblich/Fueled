@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
+
+func delay(_ seconds: Double, completion: @escaping ()->Void) {
+    let popTime = DispatchTime.now() + Double(Int64( Double(NSEC_PER_SEC) * seconds )) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: popTime, execute: completion)
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
