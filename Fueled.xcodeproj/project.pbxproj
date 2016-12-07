@@ -23,6 +23,7 @@
 		779029481DF4E6EC00D8023D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779029461DF4E6EC00D8023D /* Main.storyboard */; };
 		7790294A1DF4E6EC00D8023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779029491DF4E6EC00D8023D /* Assets.xcassets */; };
 		7790294D1DF4E6EC00D8023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7790294B1DF4E6EC00D8023D /* LaunchScreen.storyboard */; };
+		77FCDE3F1DF8A06C00EABEB4 /* FillupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FCDE3E1DF8A06C00EABEB4 /* FillupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		779029491DF4E6EC00D8023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7790294C1DF4E6EC00D8023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7790294E1DF4E6EC00D8023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77FCDE3E1DF8A06C00EABEB4 /* FillupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillupCell.swift; sourceTree = "<group>"; };
 		EF6B4945354F7AAD12D20C8B /* Pods-Fueled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fueled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fueled/Pods-Fueled.release.xcconfig"; sourceTree = "<group>"; };
 		F16D327E24B708FF84BF53FA /* Pods-Fueled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fueled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fueled/Pods-Fueled.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				775F78A51DF4E8FF003071DA /* LoginViewController.swift */,
 				775F78A71DF4EB01003071DA /* StationsViewController.swift */,
 				776637D01DF88B4900A5DE8D /* HistoryViewController2.swift */,
+				77FCDE3E1DF8A06C00EABEB4 /* FillupCell.swift */,
 			);
 			name = ViewControlllers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				7786B4921DF50DCF00E8E325 /* FillupRealm.swift in Sources */,
 				775F78AC1DF4EB82003071DA /* UserObj.swift in Sources */,
 				779029451DF4E6EC00D8023D /* HistoryViewController.swift in Sources */,
+				77FCDE3F1DF8A06C00EABEB4 /* FillupCell.swift in Sources */,
 				779029411DF4E6EC00D8023D /* AppDelegate.swift in Sources */,
 				7786B4901DF50A7E00E8E325 /* Vechicle.swift in Sources */,
 				775F78A81DF4EB01003071DA /* StationsViewController.swift in Sources */,

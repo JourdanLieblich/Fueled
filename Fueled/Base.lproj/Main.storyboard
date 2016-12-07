@@ -159,7 +159,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Stations" image="Marker" id="8Ub-wd-ola"/>
                     <connections>
-                        <outlet property="mapView" destination="ylQ-lE-qiH" id="5b4-jo-WVx"/>
+                        <outlet property="mapView" destination="ylQ-lE-qiH" id="Esu-sP-MB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bl-V5-SsR" userLabel="First Responder" sceneMemberID="firstResponder"/>

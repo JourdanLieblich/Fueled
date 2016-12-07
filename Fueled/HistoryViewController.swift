@@ -14,32 +14,30 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var historyTable: UITableView!
     
-//    var history: Results<FillupRealm>!
-//    var tempHistory : Results<FillupRealm>!
-//    var realm:Realm!
+    var history: Results<FillupRealmWOKey>!
+    var tempHistory : Results<FillupRealmWOKey>!
+    var realm:Realm!
+    let key = LoginViewController.GlobalUser.user.user_ID
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //let key = LoginViewController.GlobalUser.user.user_ID
+        do {
+            realm = try Realm()
+        } catch let error { print(error) }
         
-//        do {
-//            realm = try Realm()
-//        } catch let error { print(error) }
-//        
-//        //let total:Int = realm.objects(FillupRealm).count
-//        history = realm.objects(FillupRealm.self)
+        //let total:Int = realm.objects(FillupRealm).count
+        print("user_ID == " + key)
         
-//        for i in 0 ..< total{
-//            
-//            if(tempHistory[i].user_ID == key){
-//                //history.insert(tempHistory[i])
-//                history.append(tempHistory[i])
-//            }
-//            
-//        }
+        history = realm.objects(FillupRealmWOKey.self)//.filter("user_ID == " + key)
         
+        print("caught")
+        print("HISTORY COUNT: " + String(history.count))
+        
+        let fillup = history[3]
+        print("Table View ID: " + fillup.user_ID)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,19 +46,34 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        
+        print("at the start of table view row nums?")
+
+        return history.count
+        
+        
     
     }
 
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //let fillup = history[indexPath.row]
+        print("at the start of table view?")
         
+        let fillup = history[indexPath.row]
+         print("Table View ID: " + fillup.user_ID)
         //NSString *stringFromDate = [formatter stringFromDate:myNSDateInstance];
     
-        let cell = UITableViewCell()//tableView.dequeueReusableCell(withIdentifier: "Fillup") as! FillupRealm
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
     
-        //cell.textLabel!.text = fillup.user_ID
+       
+        
+        cell.textLabel?.text = fillup.user_ID
+        cell.detailTextLabel?.text = String(format:" %0.2f", fillup.cPM)
+//        cell.textLabel?.text = "MPG:"
+//        cell.detailTextLabel?.text = String(format:" %0.2f", calcedMPG)
         
         return cell
     

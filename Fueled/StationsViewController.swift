@@ -28,6 +28,23 @@ class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.locationManager.startUpdatingLocation()
         
         self.mapView.showsUserLocation = true
+        
+        let home = CLLocationCoordinate2DMake(37.364807, -120.426507)
+        
+        let location = CLLocationCoordinate2DMake(37.331756, -120.468581)
+        
+        let span = MKCoordinateSpanMake(0.2, 0.2)
+        
+        let region = MKCoordinateRegion(center: home, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = "Chevron"
+        
+        
+        mapView.addAnnotation(annotation)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,12 +53,10 @@ class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     //Mark: - Location Delegate Methods
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        
-        
         
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
         
@@ -50,7 +65,7 @@ class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.locationManager.stopUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
         print("Errors: " + error.localizedDescription)
     }
     

@@ -24,7 +24,7 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var resultsTableView: UITableView!
     
     
-    let gasObj = FillupRealmWOKey()//FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
+    //FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     let localGas = FillupObj(miles: 0.00, gallons: 0.00, ppg: 0.00)
     
     var realm:Realm!
@@ -127,13 +127,8 @@ class FillupViewController: UIViewController, UITableViewDataSource {
             
             
         //Set the gasObj ID to be the users id so querying the Database for this users info becomes posible
-        gasObj.user_ID = LoginViewController.GlobalUser.user.user_ID
-        gasObj.cost = localGas.ppg
-        
-            gasObj.gallons = localGas.gallons
-           
-        
-            print(gasObj.user_ID)
+
+            //print(gasObj.user_ID)
             
             do {
                 realm = try Realm()
@@ -143,11 +138,20 @@ class FillupViewController: UIViewController, UITableViewDataSource {
             
             //gasObj. = String(history.count)
             
-            do{
+        
             try! realm.write{
+                let gasObj = FillupRealmWOKey()
+                
+                gasObj.user_ID = LoginViewController.GlobalUser.user.user_ID
+                print(gasObj.user_ID)
+                gasObj.cost = localGas.ppg
+                
+                gasObj.gallons = localGas.gallons
+                
                 realm.add(gasObj)
+                print("Added gasObj!")
             }
-            } catch let error {print(error)}
+           
         }
     }
 
