@@ -202,7 +202,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="e60-Cn-Jpl" eventType="touchUpInside" id="dYb-NY-h5f"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="3fZ-6f-hfM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DFuel" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-d2-mdP">
@@ -218,14 +217,24 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qWB-pn-OC7" appends="YES" id="dIZ-Sp-Urn"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="iKH-gN-FyZ" id="Vsh-Gu-JP4"/>
                         <outlet property="passwordField" destination="3L5-aS-UR9" id="8bI-fS-SRB"/>
                         <outlet property="usernameField" destination="wvB-qt-71C" id="Ac7-In-0TK"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="Login" id="cpP-qo-M2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6s-bG-ZMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qWB-pn-OC7">
+                    <connections>
+                        <action selector="loginViewTapped:" destination="e60-Cn-Jpl" id="Gpk-sb-4xL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-841" y="0.0"/>
         </scene>

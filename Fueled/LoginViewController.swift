@@ -38,8 +38,23 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func loginViewTapped(_ sender: AnyObject) {
+        passwordField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+    
+    }
+    
     @IBAction func loginPressed(_ sender: AnyObject) {
         
+        passwordField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        
+        
+        if(passwordField.text?.isEmpty ?? true){
+            print("Enter a password")
+        }
+        
+        else{
         let password = passwordField.text!
         
         let name = usernameField.text!
@@ -65,6 +80,10 @@ class LoginViewController: UIViewController {
                 realm.add(localUser)
                 print("Welcome New user!")
             }
+        }
+            
+            performSegue(withIdentifier: "Login", sender: self)
+            
         }
     }
     
