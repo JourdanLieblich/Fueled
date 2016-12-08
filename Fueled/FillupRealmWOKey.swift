@@ -38,6 +38,7 @@ class FillupRealmWOKey: Object{
     
     dynamic var date = NSDate()
     dynamic var user_ID:String = ""
+    
 //    dynamic var extraInt:Int = 0
 //    dynamic var extraString = ""
     

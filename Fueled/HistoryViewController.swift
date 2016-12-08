@@ -12,6 +12,7 @@ import RealmSwift
 class HistoryViewController: UIViewController, UITableViewDataSource {
 
 
+  
     @IBOutlet weak var historyTable: UITableView!
     
     var history: Results<FillupRealmWOKey>!
@@ -30,14 +31,19 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         //let total:Int = realm.objects(FillupRealm).count
         print("user_ID == " + key)
         
-        history = realm.objects(FillupRealmWOKey.self)//.filter("user_ID == " + key)
+        history = realm.objects(FillupRealmWOKey.self).filter("user_ID == '" + key + "'")
         
         print("caught")
         print("HISTORY COUNT: " + String(history.count))
         
-        let fillup = history[3]
-        print("Table View ID: " + fillup.user_ID)
+//        let fillup = history[3]
+//        print("Table View ID: " + fillup.user_ID)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        historyTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +57,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
 
         return history.count
         
-        
-    
     }
 
 
@@ -62,18 +66,18 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         print("at the start of table view?")
         
         let fillup = history[indexPath.row]
-         print("Table View ID: " + fillup.user_ID)
-        //NSString *stringFromDate = [formatter stringFromDate:myNSDateInstance];
+         //print("Table View ID: " + fillup.user_ID)
+       // NSString *stringFromDate = [formatter stringFromDate:myNSDateInstance];
     
         
         let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
     
-       
         
-        cell.textLabel?.text = fillup.user_ID
-        cell.detailTextLabel?.text = String(format:" %0.2f", fillup.cPM)
-//        cell.textLabel?.text = "MPG:"
-//        cell.detailTextLabel?.text = String(format:" %0.2f", calcedMPG)
+       print(fillup.miles)
+        
+        cell.textLabel?.text = fillup.date.description
+        cell.detailTextLabel?.text = String(format:" %0.2f", fillup.mpg)
+
         
         return cell
     

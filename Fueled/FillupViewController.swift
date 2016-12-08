@@ -89,6 +89,9 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //print("at the start of table view?")
+
+        
         let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
         
         let calcedMPG = localGas.mpg
@@ -145,7 +148,7 @@ class FillupViewController: UIViewController, UITableViewDataSource {
                 gasObj.user_ID = LoginViewController.GlobalUser.user.user_ID
                 print(gasObj.user_ID)
                 gasObj.cost = localGas.ppg
-                
+                gasObj.miles = localGas.miles
                 gasObj.gallons = localGas.gallons
                 
                 realm.add(gasObj)

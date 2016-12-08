@@ -75,7 +75,7 @@
                                     <action selector="calculateTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cKe-GJ-Rab"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-6h-j9g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Y7-6h-j9g">
                                 <frame key="frameInset" minY="341" width="375" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -272,13 +272,17 @@
                                 <frame key="frameInset" minY="109" width="375" height="509"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Vy-OX-Wv3" id="G29-Fw-0yb"/>
+                                    <outlet property="delegate" destination="2Vy-OX-Wv3" id="K9P-78-QDG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="Gas Station" id="8Es-Il-xYR"/>
                     <connections>
-                        <outlet property="historyTable" destination="yJf-J7-t4Q" id="Y9E-Ih-Ksl"/>
+                        <outlet property="historyTable" destination="yJf-J7-t4Q" id="Mht-8g-Nie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lay-yw-CCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
