@@ -33,11 +33,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         
         history = realm.objects(FillupRealmWOKey.self).filter("user_ID == '" + key + "'")
         
+        if(history.isEmpty){
+            print("ahoy")
+        }
+        
         print("caught")
         print("HISTORY COUNT: " + String(history.count))
-        
-//        let fillup = history[3]
-//        print("Table View ID: " + fillup.user_ID)
 
     }
     
@@ -66,8 +67,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         print("at the start of table view?")
         
         let fillup = history[indexPath.row]
-         //print("Table View ID: " + fillup.user_ID)
-       // NSString *stringFromDate = [formatter stringFromDate:myNSDateInstance];
+
     
         
         let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
@@ -76,7 +76,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
        print(fillup.miles)
         
         cell.textLabel?.text = fillup.date.description
-        cell.detailTextLabel?.text = String(format:" %0.2f", fillup.mpg)
+        cell.detailTextLabel?.text = String(format:"MPG: %0.1f   Miles: %0.1f   Gallons: %0.1f", fillup.mpg, fillup.miles, fillup.gallons)
 
         
         return cell

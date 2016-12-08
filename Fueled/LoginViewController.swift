@@ -17,11 +17,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    let localUser = UserRealm()
+    //let localUser = UserRealm()
     
     var realm:Realm!
     
-    
+    var userQuery: Results<UserRealm>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +46,26 @@ class LoginViewController: UIViewController {
         
         GlobalUser.user.login(u_ID: password, n: name, v: "Tractor", c: "Compton");
         
-        localUser.login(u_ID: password, n: name, v: "Tractor", c: "Compton")
         
-//        let realm = try! Realm()
-//        
         
-//        if(realm.object(ofType: UserRealm.self, forPrimaryKey: password) == nil){
-//            
-//        
-//        do{
-//            
-//            try! realm.write{
-//            realm.add(localUser)
-//            }
-//        } catch let error {print(error)}
-//        
-//        }
-//
+        do {
+            realm = try Realm()
+        } catch let error { print(error) }
+        
+        let key = password
+        
+        userQuery = realm.objects(UserRealm.self).filter("user_ID == '" + key + "'")
+        
+        if(userQuery.isEmpty){
+            try! realm.write{
+                let localUser = UserRealm()
+                
+                localUser.login(u_ID: password, n: name, v: "Tractor", c: "Compton")
+                
+                realm.add(localUser)
+                print("Welcome New user!")
+            }
+        }
     }
     
     struct GlobalUser{
