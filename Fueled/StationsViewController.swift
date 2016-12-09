@@ -10,7 +10,48 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    let list = ["Chevron", "Arco", "Valero", "Chevron", "Valero"]
+    let chevronPrices = [2.90 , 3.04 , 3.10]
+    let arcoPrices = [2.20 , 2.40 , 2.50]
+    let valeroPrices = [2.06 , 2.27 , 2.51]
+    let chevron2Prices = [2.37 , 2.53 , 2.75]
+    let valero2Prices = [3.01 , 3.17 , 3.33]
+    
+    //let dic: [String:list] = ["Chevron":chevron1Prices, "Arco", "Valero", "Chevron", "Valero"]
+    
+    @IBOutlet weak var stationsTable: UITableView!
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 5
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: "cell")
+        
+        var tablePrice = [0.0, 0.0, 0.0]
+        
+        switch list[indexPath.row] {
+        case "Chevron":
+            tablePrice = chevronPrices
+        case "Arco":
+            tablePrice = arcoPrices
+        case "Valero":
+            tablePrice = valeroPrices
+        default:
+            break
+        }
+        
+        cell.textLabel?.text = list[indexPath.row]
+        cell.detailTextLabel?.text = String(format: "Reguler: %0.2f Super: %0.2f Premium: %0.2f", tablePrice[0], tablePrice[1], tablePrice[2])
+        
+        
+        return(cell)
+    }
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,6 +70,7 @@ class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         self.mapView.showsUserLocation = true
         
+        
         let home = CLLocationCoordinate2DMake(37.364807, -120.426507)
         
         let location = CLLocationCoordinate2DMake(37.331756, -120.468581)
@@ -42,9 +84,46 @@ class StationsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = "Chevron"
-        
+        annotation.subtitle = "Regular: $2.90 - Midgrade: $3.04 - Premium: $3.10"
         
         mapView.addAnnotation(annotation)
+        
+        let location2 = CLLocationCoordinate2DMake(37.318691, -120.468867)
+        
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = location2
+        annotation2.title = "Arco"
+        annotation2.subtitle = "Regular: $2.20 - Midgrade: $2.40 - Premium: $2.50"
+        
+        mapView.addAnnotation(annotation2)
+        
+        let location3 = CLLocationCoordinate2DMake(37.319533, -120.487246)
+        
+        let annotation3 = MKPointAnnotation()
+        annotation3.coordinate = location3
+        annotation3.title = "Valero"
+        annotation3.subtitle = "Regular: $2.06 - Midgrade: $2.27 - Premium: $2.51"
+        
+        mapView.addAnnotation(annotation3)
+        
+        let location4 = CLLocationCoordinate2DMake(37.319533, -120.487246)
+        
+        let annotation4 = MKPointAnnotation()
+        annotation4.coordinate = location4
+        annotation4.title = "Chevron"
+        annotation4.subtitle = "Regular: $2.37 - Midgrade: $2.53 - Premium: $2.75"
+        
+        mapView.addAnnotation(annotation4)
+        
+        let location5 = CLLocationCoordinate2DMake(37.315549, -120.469056)
+        
+        let annotation5 = MKPointAnnotation()
+        annotation5.coordinate = location5
+        annotation5.title = "Valero"
+        annotation5.subtitle = "Regular: $3.01 - Midgrade: $3.17 - Premium: $3.33"
+        
+        mapView.addAnnotation(annotation5)
+        
     }
     
     override func didReceiveMemoryWarning() {

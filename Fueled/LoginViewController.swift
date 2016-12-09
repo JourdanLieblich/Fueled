@@ -69,12 +69,16 @@ class LoginViewController: UIViewController {
         
         let key = password
         
+        //SELECT *              FROM UserRealm         WHERE user_ID == key
         userQuery = realm.objects(UserRealm.self).filter("user_ID == '" + key + "'")
         
         if(userQuery.isEmpty){
+            
+            //INSERT INTO UserRealm
             try! realm.write{
                 let localUser = UserRealm()
                 
+                //VALUES
                 localUser.login(u_ID: password, n: name, v: "Tractor", c: "Compton")
                 
                 realm.add(localUser)

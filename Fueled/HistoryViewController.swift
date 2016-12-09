@@ -31,6 +31,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         //let total:Int = realm.objects(FillupRealm).count
         print("user_ID == " + key)
         
+        //Set up data structure to hold results of the query
+//        var history: Results<FillupRealmWOKey>!
+        
+        //SELECT *              FROM FillupRealmWOKey         WHERE user_ID == key
         history = realm.objects(FillupRealmWOKey.self).filter("user_ID == '" + key + "'")
         
         if(history.isEmpty){

@@ -33,6 +33,8 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -124,6 +126,14 @@ class FillupViewController: UIViewController, UITableViewDataSource {
     
     
     @IBAction func addFillupToDatabase(_ sender: AnyObject) {
+        
+        localGas.gallons = Double((gallonsText.text! as NSString).doubleValue)
+        
+        localGas.miles = Double((milesText.text! as NSString).doubleValue)
+        
+        localGas.ppg = Double((costText.text! as NSString).doubleValue)
+        
+        resultsTableView.reloadData()
         
         //Stop accidental default and (potentially) irreversable additions to the Database
         if(localGas.ppg != 0.0 && localGas.gallons != 0.0 && localGas.miles != 0.0){
